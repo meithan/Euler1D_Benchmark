@@ -7,12 +7,14 @@ The benchmark is to solve the [Sod Shock Tube](https://en.wikipedia.org/wiki/Sod
 
 Current implementations are:
 
-- C
-- Fortran (90)
+- C/C++
+- Fortran 90
 - Python, using native nested lists and `for` loops
 - Python with Numpy arrays and vectorized operations
 - Julia
 - Rust
+
+Python 3.8 and 3.11 were also tried (3.11 is significantly faster!)
 
 ## Results
 
