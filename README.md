@@ -16,9 +16,11 @@ Current implementations are:
 
 Python 3.8 and 3.11 were also tried for both Python implementations; 3.11 is significantly faster! it's my first time writing Julia and Rust code, so if you know how to further optimize any of them, please let me know!
 
+The tests were executed on a computer with an Intel Core i7-9700F CPU running Gentoo Linux with kernel 6.1.28. Compiler/interpreter versions are as indicated above, and optimization flags were used where available (`O3` for gcc and `opt-level=3` for Rust).
+
 ## Results
 
-The results of the benchmark are presented in the following plots. The bars show the execution time averaged over 10 runs (on a computer with an Intel Core i7-9700F running Gentoo Linux with kernel 6.1.28)
+The results of the benchmark are presented in the following plots. The bar heights are the execution times averaged over 10 runs in each case, while the numbers above them are the time ratios vs the C/C++ implementation.
 
 #### **Linear** Y scale
 ![Lin scale](https://github.com/meithan/Euler1D_Benchmark/blob/main/benchmark_lin.png)
