@@ -9,12 +9,13 @@ Current implementations are:
 
 - C/C++
 - Fortran 90 
+- Java
 - Python, using native nested lists and `for` loops
 - Python with Numpy arrays and vectorized operations
 - Julia
 - Rust
 
-The tests were executed on a personal computer with an Intel Core i7-9700F processor running Gentoo Linux with kernel 6.1.28. Compiler/interpreter versions were gcc 12.2.1 for C/C++ and Fortran 90, CPython 3.8 and 3.11 for Python, 1.8.5 for Julia and 1.66.1 for Rust. Optimization flags were used where available (`O3` for gcc and `opt-level=3` for Rust).
+The tests were executed on a personal computer with an Intel Core i7-9700F processor running Gentoo Linux with kernel 6.1.28. Compiler/interpreter versions were gcc 12.2.1 for C/C++ and Fortran 90, OpenJDK 17.0.6 for Java, CPython 3.8 and 3.11 for Python, 1.8.5 for Julia and 1.66.1 for Rust. Optimization flags were used where available (`O3` for gcc and `opt-level=3` for Rust).
 
 Python 3.8 and 3.11 were tried for both Python implementations (3.11 is significantly faster!). It was my first time writing Julia and Rust code so those implementations might be a bit rough. If you know how to further optimize any of them to make the comparison more fair, please let me know!
 
