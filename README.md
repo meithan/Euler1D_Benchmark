@@ -21,7 +21,7 @@ Python 3.8 and 3.11 were tried for both Python implementations (3.11 is signific
 
 ## Results
 
-The results of the benchmark are presented in the following plots. The bar heights are the average execution times over 10 runs in each case, while the numbers above them are execution time ratios vs the C/C++ implementation.
+The results of the benchmark are presented in the following plots. The bar heights are the average execution time averaged over 10 runs for each case, normalized to the execution time of the C/C++ implementation. In the first plot the native Python implementations are shown on a separate scale.
 
 #### **Linear** Y scale
 ![Lin scale](https://github.com/meithan/Euler1D_Benchmark/blob/main/benchmark_lin.png)
