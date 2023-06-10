@@ -2,6 +2,7 @@
 
 import sys
 import matplotlib.pyplot as plt
+import numpy as np
 
 with open("benchmarks.csv") as f:
   for i in range(6):
@@ -17,25 +18,43 @@ with open("benchmarks.csv") as f:
     for i in range(len(tokens)):
       data[langs[i]].append(tokens[i])
 
+# Compute averages
+num_langs = len(langs)
 num_runs = len(data[langs[0]])
+results = []
+for l in langs:
+  mean = sum(data[l])/len(data[l])
+  minv = min(data[l])
+  maxv = max(data[l])
+  results.append((l, mean, minv, maxv))
+results.sort(key=lambda x: x[1])
+ref_idx = 1
+ref_value = results[ref_idx][1]
 
 use_log_scale = "--log" in sys.argv
 
-plt.figure(figsize=(8,5))
+plt.figure(figsize=(9,5))
 
 xs = range(len(langs))
-avgs = [sum(data[l])/len(data[l]) for l in langs]
-colors = ["C0", "C1", "C2", "C4", "C5", "C6", "C7", "C8"]
-labels = [l.replace('+n', "\n+n") for l in langs]
-plt.bar(xs, avgs, width=0.4, tick_label=labels, log=False, color=colors)
-ref_value = avgs[0]
-for x, value, color in zip(xs, avgs, colors):
-  text = f"{value/ref_value:.2f}x"
-  plt.annotate(text, xy=(x, value), xytext=(0, 5), textcoords="offset pixels", color="k", ha="center", fontsize=14)
+labels, means, mins, maxs = zip(*results)
+labels = [x.replace("+numpy", "\n+numpy") for x in labels]
+colors = ["C0", "C1", "C2", "C4", "C5", "C6", "C7", "C8", "C9"]
+yerrs = np.abs(np.array([mins, maxs]) - means)
+plt.bar(xs, means, yerr=yerrs, capsize=3, width=0.5, tick_label=labels, log=False, color=colors)
+for i in xs:
+  x = xs[i]
+  value = means[i]
+  ratio = value/ref_value
+  if ratio >= 100:
+    text = f"{ratio:.1f}"
+  else:
+    text = f"{ratio:.2f}"
+  y = value + yerrs[1][i]
+  plt.annotate(text, xy=(x, y), xytext=(0, 5), textcoords="offset pixels", color="k", ha="center", fontsize=14)
 
 plt.ylabel("Execution time [s]")
 plt.grid(ls=":", axis="y")
-title = "Euler1D, Sod shock tube, NX=5000, Lax-Friedrichs, {} runs avg".format(num_runs)
+title = "Euler1D, Sod shock tube, NX=5000, Lax-Friedrichs solver, {} runs avg".format(num_runs)
 if use_log_scale:
   plt.yscale("log")
   title +=" (log scale)"
@@ -45,7 +64,11 @@ else:
   title +=" (lin scale)"
 plt.title(title)
 
-plt.annotate("Performance ratios vs C", xy=(0.99, 0.99), ha="right", va="top", xycoords="axes fraction", fontsize=9)
+notes = [
+  "Numbers above bars are ratios relative to C/C++",
+  "Erorr bars show min/max of 10 runs"
+]
+plt.annotate("\n".join(notes), xy=(0.01, 0.99), ha="left", va="top", xycoords="axes fraction", fontsize=9)
 
 plt.tight_layout()
 
