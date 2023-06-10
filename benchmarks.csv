@@ -9,7 +9,7 @@
 # Python: 3.8.16, 3.11.3
 # Julia: 1.8.5
 # Rust: 1.66.1 (compiled with -C opt-level=3)
-C/C++,Fortran,Java,Python 3.8,Python 3.8+numpy,Python 3.11,Py3.11+numpy,Julia 1.8,Rust 1.66
+C/C++,Fortran,Java,Python 3.8,Python 3.8+numpy,Python 3.11,Python 3.11+numpy,Julia 1.8,Rust 1.66
 0.079,0.062,0.265,38.292,0.443,18.863,0.292,0.478,0.196
 0.076,0.061,0.265,38.928,0.450,19.193,0.297,0.476,0.196
 0.079,0.059,0.262,38.334,0.430,18.961,0.304,0.477,0.195
