@@ -11,7 +11,7 @@
 #
 # ==============================================================================
 
-using LoopVectorization
+# using LoopVectorization
 
 # ==============================================================================
 # CONSTANTES Y VARIABLES GLOBALES
@@ -256,7 +256,7 @@ end
 
 function main()
 
-# start_time = time()
+start_time = time()
 
 # Condición inicial e inicializaciones
 initmain()
@@ -301,7 +301,7 @@ while t < TFIN
 
 end
 
-# println(time() - start_time)
+println(time() - start_time)
 
 end
 

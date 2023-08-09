@@ -443,6 +443,7 @@ while (t < TFIN):
 
 # Imprimir tiempo transcurrido
 elapsed = time.time() - clock_start
-print("Se calcularion {} iteraciones {:.3f} s".format(it,elapsed))
+# print("Se calcularion {} iteraciones {:.3f} s".format(it,elapsed))
+print(elapsed)
 
 # ==============================================================================

@@ -444,6 +444,8 @@ void output(double PRIM[NX+2][NEQ]) {
 
 int main() {
 
+  start = clock();
+
   // Inicializaciones generales
   initmain();
 
@@ -457,10 +459,7 @@ int main() {
   calc_prims(U, PRIM);
 
   // Escribir condición inicial a disco
-  output(PRIM);
-
-  // Tiempo de inicio de la simulación
-  start = clock();
+  //output(PRIM);
 
   // BUCLE PRINCIPAL
   while (t < TFIN) {
@@ -494,8 +493,8 @@ int main() {
 
   }
 
-  // Ejecución terminada!
-  printf("\nSe calcularon %i iteraciones en %.3f s\n\n", it, (double)(clock() - start)/CLOCKS_PER_SEC);
+  //printf("\nSe calcularon %i iteraciones en %.3f s\n\n", it, (double)(clock() - start)/CLOCKS_PER_SEC);
+  printf("%.3f", (double)(clock() - start)/CLOCKS_PER_SEC);
 
 }
 

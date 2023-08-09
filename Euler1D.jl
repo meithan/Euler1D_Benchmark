@@ -250,6 +250,8 @@ end
 # Programa principal
 # ==============================================================================
 
+start = time()
+
 # Condición inicial e inicializaciones
 initmain()
 
@@ -294,6 +296,6 @@ while t < TFIN
 end
 
 # Imprimir tiempo transcurrido
-
+println(time() - start)
 
 # ==============================================================================

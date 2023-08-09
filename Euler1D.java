@@ -451,6 +451,8 @@ public class Euler1D {
 
   public static void main(String[] args) {
 
+    long start = System.nanoTime();
+
     // Inicializaciones generales
     initmain();
 
@@ -497,6 +499,9 @@ public class Euler1D {
       }
 
     }
+
+    double elapsed = (double)(System.nanoTime()-start)/1.0e9;
+    System.out.printf("%.3f", elapsed);
 
   }
 

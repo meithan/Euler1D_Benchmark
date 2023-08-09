@@ -536,9 +536,12 @@ end subroutine
 ! ==============================================================================
 
 program Euler1D
+
   use named_constants
   use globals
   implicit none
+
+  call system_clock(clock_start, clock_rate, clock_max)
 
   ! Condición inicial e inicializaciones
   call initflow(U)
@@ -553,7 +556,6 @@ program Euler1D
   call output(PRIM)
 
   ! Bucle principal
-  call system_clock(clock_start, clock_rate, clock_max)
   do while (time < TFIN)
 
     ! Calcular el paso de tiempo
@@ -587,7 +589,8 @@ program Euler1D
 
   ! Imprimir tiempo transcurrido
   call system_clock(clock_count, clock_rate, clock_max)
-  write(*,'(a,i5,a,f8.5,a)') "Se calcularon ", it, " iteraciones en ", (clock_count-clock_start)/real(clock_rate), " s"
+  write(*,'(f8.5)') (clock_count-clock_start)/real(clock_rate)
+  !write(*,'(a,i5,a,f8.5,a)') "Se calcularon ", it, " iteraciones en ", (clock_count-clock_start)/real(clock_rate), " s"
 
 end program Euler1D
 

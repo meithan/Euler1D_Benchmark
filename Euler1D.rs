@@ -408,7 +408,10 @@ fn output(PRIM: &Vec<Vec<f64>>, nout: &mut i32, tout: &mut f64, t: f64, it: i32,
 // PROGRAMA PRINCIPAL
 
 fn main() {
-    
+
+  use std::time::Instant;
+  let start = Instant::now();
+
   // VARIABLES GLOBALES
 
   let mut U = vec![vec![0.0; NEQ]; NX+2];;
@@ -478,6 +481,8 @@ fn main() {
     }
 
   }
+
+  println!("{:.3?}", start.elapsed().as_secs_f64());
 
 }
 
