@@ -85,7 +85,7 @@ for subnum, _results in enumerate([results1, results2]):
   if subnum == 0:
     plt.ylabel(f"Execution time ratio relative to {ref_lang}")
     notes = [
-      "Erorr bars show min/max of 10 runs"
+      "Error bars show min/max of 10 runs"
     ]
     plt.annotate("\n".join(notes), xy=(0.01, 0.99), ha="left", va="top", xycoords="axes fraction", fontsize=9)
   else:
